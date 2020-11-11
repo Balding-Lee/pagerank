@@ -41,8 +41,8 @@ def pagerank(adj_matrix, pr_vec):
     # pr_list = []
 
     for n_iter in range(1, 201):
+        # PR^{(i+1)} = alpha * PR^{(i)} * adj + ((1 - alpha) / N) * E
         pr_new = alpha * np.dot(pr_vec, adj_matrix) + jump_vec
-        # 这里有问题，邻接矩阵要除以边数
 
         print("第{0}次迭代的PR值:{1}".format(n_iter, pr_new))
 
