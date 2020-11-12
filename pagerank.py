@@ -20,7 +20,7 @@ def draw(iter_list, pr_list):
 def pagerank(adj_matrix, pr_vec):
     """
     pagerank算法:
-        V_{i+1} = V_i * adj
+        V_{i+1} = alpha * V_i * adj + ((1 - alpha) / N) * E
 
     收敛条件:
         1. V_{i+1} == V_i
@@ -41,7 +41,6 @@ def pagerank(adj_matrix, pr_vec):
     # pr_list = []
 
     for n_iter in range(1, 201):
-        # PR^{(i+1)} = alpha * PR^{(i)} * adj + ((1 - alpha) / N) * E
         pr_new = alpha * np.dot(pr_vec, adj_matrix) + jump_vec
 
         print("第{0}次迭代的PR值:{1}".format(n_iter, pr_new))
